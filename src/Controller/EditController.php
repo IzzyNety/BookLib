@@ -16,7 +16,7 @@ class EditController extends AbstractController
     /**
      * @Route("/edit/{id}", name="edit")
      */
-    public function edit(Request $request, $id): Response
+    public function edit(Request $request, Book $id): Response
     {
         $book = new Book();
         $book = $this->getDoctrine()->getRepository(Book::class)->find($id);

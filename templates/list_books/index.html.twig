@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список книг{% endblock %}
+
+{% block body %}
+    {%if books %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Книги</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>Название: {{ book.name }} | Год издания: {{ book.year }} | Автор: {{ book.author }}</td>
+                        <td>
+                        <a href="/edit/{{book.id}}" class="btn">Редактировать</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Ещё не добавили книги</p>
+    {% endif %}
+{% endblock %}
